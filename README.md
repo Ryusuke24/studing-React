@@ -1,1 +1,3 @@
 # studing-React
+
+first steps
