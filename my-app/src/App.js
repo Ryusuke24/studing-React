@@ -30,7 +30,13 @@ function App() {
       {list2};
     </div>
   );
-  return block;
+
+  return (
+    <>
+      <input />
+      {block}
+    </>
+  );
 }
 
 export default App;
