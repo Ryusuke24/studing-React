@@ -1,40 +1,18 @@
 import React from "react";
 
 function App() {
-  const list = (
-    <ul>
-      <li>1</li>
-      <li>2</li>
-    </ul>
-  );
-
-  const list2 = (
-    <ul>
-      <li>text1</li>
-      <li>text2</li>
-      <li>text3</li>
-    </ul>
-  );
-
-  const block = (
-    <div>
-      {""}
-      {list} <p class="one">paragraf 1</p> <p class="two">paragraf 2</p>
-      <ul>
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
-        <li>item</li>
-      </ul>
-      {list2};
-    </div>
-  );
+  const num1 = 2;
+  const num2 = 5;
+  const num3 = 25;
+  const name = "John";
+  const surname = "Smith";
 
   return (
     <>
-      <input />
-      {block}
+      <div>result: {num1 + num2}</div>
+      <div>result: {num1 ** num2}</div>
+      <div>result: {`${name}  ${surname}`}</div>
+      <div>result: {Math.sqrt(num3)}</div>
     </>
   );
 }
