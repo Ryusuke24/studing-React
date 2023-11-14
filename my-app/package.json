@@ -37,6 +37,8 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "react-devtools": "^4.28.5"
+    "nanoid": "^5.0.3",
+    "react-devtools": "^4.28.5",
+    "react-uuid": "^2.0.0"
   }
 }
