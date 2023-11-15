@@ -51,21 +51,26 @@ function App() {
   });
   return (
     <>
-      <p>{isBanned ? "qwe" : "Unbanned"}</p>
-      <button
-        onClick={() => {
-          getBan(true);
-        }}
-      >
-        ban
-      </button>
-      <button
-        onClick={() => {
-          getBan(false);
-        }}
-      >
-        unban
-      </button>
+      <p>{isBanned ? "Ban" : "Unbanned"}</p>
+      <div>
+        {isBanned ? (
+          <button
+            onClick={() => {
+              getBan(false);
+            }}
+          >
+            unban
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              getBan(true);
+            }}
+          >
+            ban
+          </button>
+        )}
+      </div>
       <p>=========================</p>
       <p>{inCart ? "yes" : "no"}</p>
       <button onClick={() => setInCart(!inCart)}>add</button>
