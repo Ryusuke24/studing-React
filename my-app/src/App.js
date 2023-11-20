@@ -31,13 +31,12 @@ function App() {
   const [blur2, getBlur2] = useState(0);
 
   function getDel(num) {
-    let res = [];
+    let res = "1";
     const NOD = 2;
-    for (let i = NOD; i < num; i++) {
+    for (let i = NOD; i <= num; i++) {
       if (num % i === 0) {
-        console.log(num % i);
-        res.push(i);
-        num = num / i;
+        res += `*${i}`;
+        num = Math.floor(num / i);
         i = NOD;
       }
     }
