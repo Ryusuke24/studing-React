@@ -72,8 +72,70 @@ function App() {
   const [css, setCss] = useState(false);
   const [js, setJs] = useState(false);
 
+  const [checked2, setChecked2] = useState(true);
+  let message;
+  if (checked2) {
+    message = <p>mess1</p>;
+  } else {
+    message = <p>mess2</p>;
+  }
+
+  const [validateAge, setValidateAge] = useState(true);
+  let accept;
+  if (validateAge) {
+    accept = (
+      <div>
+        <h2>Yaapi ,adult content</h2>
+        <p>there placed content only 18+</p>
+      </div>
+    );
+  } else {
+    accept = (
+      <div>
+        <p>You're not adult</p>
+      </div>
+    );
+  }
+
+  const [visPara, setVisPara] = useState(true);
+  let para;
+
+  if (visPara) {
+    para = <p style={{ display: "block" }}>123</p>;
+  } else {
+    para = <p style={{ display: "none" }}>123</p>;
+  }
+
   return (
     <>
+      {" "}
+      <div>
+        <p>================================================</p>
+        <input
+          type="checkbox"
+          defaultChecked={visPara}
+          onChange={event => setVisPara(!visPara)}
+        />
+        {para}
+      </div>
+      <div>
+        <p>================================================</p>
+        <input
+          type="checkbox"
+          defaultChecked={validateAge}
+          onChange={event => setValidateAge(!validateAge)}
+        />
+        <p>{accept}</p>
+      </div>
+      <div>
+        <p>================================================</p>
+        <input
+          type="checkbox"
+          defaultChecked={checked2}
+          onChange={event => setChecked2(!checked2)}
+        />
+        <p>{message}</p>
+      </div>
       <div>
         <p>================================================</p>
         <label>
