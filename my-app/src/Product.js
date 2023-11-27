@@ -1,55 +1,46 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
+import ProductField from "./ProductField";
 
 function Product({
   name,
   cost,
   id,
   inCart,
-  addToCart,
-  isEdit,
   toogleMod,
-  editProd,
+  addToCart,
+  changeField,
+  catg,
 }) {
   return (
     <>
-      <div>
-        id :{" "}
-        {isEdit ? (
-          <input
-            defaultValue={id}
-            onChange={event => editProd(id, "id", event.target.value)}
-          />
-        ) : (
-          <span>{id}</span>
-        )}{" "}
-        <br />
-        name:{" "}
-        {isEdit ? (
-          <input
-            defaultValue={name}
-            onChange={event => editProd(id, "name", event.target.value)}
-          />
-        ) : (
-          <span>{name}</span>
-        )}{" "}
+      <tr>
+        name:
+        <ProductField
+          id={id}
+          text={name}
+          type={"name"}
+          changeField={changeField}
+        ></ProductField>
         <br />
         cost:{" "}
-        {isEdit ? (
-          <input
-            defaultValue={cost}
-            onChange={event => editProd(id, "cost", event.target.value)}
-          />
-        ) : (
-          <span>{cost}</span>
-        )}{" "}
+        <ProductField
+          id={id}
+          text={cost}
+          type={"cost"}
+          changeField={changeField}
+        ></ProductField>
+        <br />
+        <ProductField
+          id={id}
+          text={catg}
+          type={"catg"}
+          changeField={changeField}
+        ></ProductField>
         <br />
         inCart: <span>{inCart ? "in cart" : "not in cart"}</span>
         <button onClick={() => addToCart(id)}>to cart</button>
-        <button onClick={() => toogleMod(id)}>
-          {isEdit ? "save" : "edit"}
-        </button>
-      </div>
+      </tr>
     </>
   );
 }

@@ -1,51 +1,33 @@
 import React, { useState } from "react";
 import { nanoid } from "nanoid";
+import UserField from "./UserField";
 
-function User({
-  name,
-  surname,
-  age,
-  id,
-  banned,
-  getBanUser,
-  isChange,
-  toogleButton,
-  changeUser,
-}) {
+function User({ name, surname, age, id, banned, getBanUser, changeField }) {
   return (
     <>
       <div>
         <p>{id}</p>
-        {isChange ? (
-          <input
-            defaultValue={name}
-            onChange={event => changeUser(id, "name", event.target.value)}
-          />
-        ) : (
-          <span>{name}</span>
-        )}
+        <UserField
+          text={name}
+          type={"name"}
+          id={id}
+          changeField={changeField}
+        ></UserField>
         <br />
-        {isChange ? (
-          <input
-            defaultValue={surname}
-            onChange={event => changeUser(id, "surname", event.target.value)}
-          />
-        ) : (
-          <span>{surname}</span>
-        )}
+        <UserField
+          text={surname}
+          type={"surname"}
+          changeField={changeField}
+          id={id}
+        ></UserField>
         <br />
-        {isChange ? (
-          <input
-            defaultValue={age}
-            onChange={event => changeUser(id, "age", event.target.value)}
-          />
-        ) : (
-          <span>{age}</span>
-        )}
+        <UserField
+          text={age}
+          type={"age"}
+          changeField={changeField}
+          id={id}
+        ></UserField>
         <br />
-        <button onClick={() => toogleButton(id)}>
-          {isChange ? "save" : "edit"}
-        </button>
         <p>{banned ? "yes" : "no"}</p>
         <button
           onClick={() => {

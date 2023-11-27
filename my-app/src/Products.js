@@ -7,35 +7,12 @@ function id() {
 }
 
 const initProds = [
-  { id: id(), name: "product1", cost: 100, inCart: false, isEdit: false },
-  { id: id(), name: "product2", cost: 200, inCart: false, isEdit: false },
-  { id: id(), name: "product3", cost: 300, inCart: false, isEdit: false },
+  { id: id(), name: "prod1", cost: "cost1", catg: "catg1", isCart: false },
+  { id: id(), name: "prod2", cost: "cost2", catg: "catg2", isCart: false },
+  { id: id(), name: "prod3", cost: "cost3", catg: "catg3", isCart: false },
 ];
 
 function Products() {
-  function toogleMod(id) {
-    setProds(
-      prods.map(prod => {
-        if (prod.id === id) {
-          prod.isEdit = !prod.isEdit;
-        }
-        return prod;
-      })
-    );
-  }
-
-  function editProd(id, prop, event) {
-    setProds(
-      prods.map(prod => {
-        if (id === prod.id) {
-          prod[prop] = event;
-        }
-
-        return prod;
-      })
-    );
-  }
-
   function addToCart(id) {
     setProds(
       prods.map(prod => {
@@ -47,22 +24,40 @@ function Products() {
     );
   }
 
+  function changeField(id, field, event) {
+    setProds(
+      prods.map(prod => {
+        if (id === prod.id) {
+          prod[field] = event.target.value;
+        }
+
+        return prod;
+      })
+    );
+  }
+
   const [prods, setProds] = useState(initProds);
-  const result = prods.map(prod => (
+  const rows = prods.map(prod => (
     <Product
       key={prod.id}
       name={prod.name}
       cost={prod.cost}
+      catg={prod.catg}
       id={prod.id}
       inCart={prod.inCart}
-      isEdit={prod.isEdit}
       addToCart={addToCart}
-      toogleMod={toogleMod}
-      editProd={editProd}
+      changeField={changeField}
     />
   ));
 
-  return <>{result}</>;
+  return (
+    <>
+      <table>
+        <thead></thead>
+        <tbody>{rows}</tbody>
+      </table>
+    </>
+  );
 }
 
 export default Products;

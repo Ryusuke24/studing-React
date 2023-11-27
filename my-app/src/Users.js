@@ -13,7 +13,6 @@ const initUsers = [
     surname: "surn1",
     age: 30,
     banned: false,
-    isChange: false,
   },
   {
     id: id(),
@@ -21,7 +20,6 @@ const initUsers = [
     surname: "surn2",
     age: 31,
     banned: false,
-    isChange: false,
   },
   {
     id: id(),
@@ -29,28 +27,15 @@ const initUsers = [
     surname: "surn3",
     age: 32,
     banned: false,
-    isChange: false,
   },
 ];
 
 function Users() {
-  function changeUser(id, prop, value) {
+  function changeField(id, prop, event) {
     setUsers(
       users.map(user => {
         if (id === user.id) {
-          user[prop] = value;
-        }
-
-        return user;
-      })
-    );
-  }
-
-  function toogleButton(id) {
-    setUsers(
-      users.map(user => {
-        if (id === user.id) {
-          user.isChange = !user.isChange;
+          user[prop] = event.target.value;
         }
         return user;
       })
@@ -79,9 +64,7 @@ function Users() {
       age={user.age}
       banned={user.banned}
       getBanUser={getBanUser}
-      isChange={user.isChange}
-      toogleButton={toogleButton}
-      changeUser={changeUser}
+      changeField={changeField}
     />
   ));
   return <>{result}</>;
