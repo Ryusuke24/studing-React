@@ -1,0 +1,22 @@
+.class1 {
+  width: 200px;
+  border: 2px solid brown;
+  padding: 10px;
+  text-align: center;
+}
+
+.class2 {
+  color: orangered;
+  font-weight: bold;
+}
+
+.class3 {
+  font-style: italic;
+  color: brown;
+}
+
+.class4 {
+  background-color: orange;
+  font-weight: bold;
+  color: white;
+}
