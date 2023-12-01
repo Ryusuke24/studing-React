@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { nanoid } from "nanoid";
 import uuid from "react-uuid";
 import { Context } from "./Context";
@@ -9,12 +9,21 @@ function getId() {
 }
 
 function App() {
+  const [age, setAge] = useState(50);
+
   return (
     <>
       {" "}
-      <Context.Provider value={42}>
+      <Context.Provider value={age}>
         {" "}
         <Parent />
+        <button
+          onClick={() => {
+            setAge(age - 2);
+          }}
+        >
+          press
+        </button>
       </Context.Provider>
     </>
   );
