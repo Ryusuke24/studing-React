@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import uuid from "react-uuid";
 import { MyContext } from "./MyContext";
@@ -10,10 +10,19 @@ function getId() {
 }
 
 function App() {
+  const [value, setValue] = useState("small box :)");
+
   return (
     <>
-      <MyContext.Provider value={"small box :)"}>
+      <MyContext.Provider value={value}>
         <BigBox />
+        <button
+          onClick={() => {
+            setValue("metal box >:|");
+          }}
+        >
+          click
+        </button>
       </MyContext.Provider>
     </>
   );
