@@ -1,0 +1,10 @@
+.bigBox {
+  background-color: orangered;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-direction: column;
+}
